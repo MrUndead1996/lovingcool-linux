@@ -1,0 +1,33 @@
+vendor_id = 20785
+product_id = 8203
+interface = 0
+endpoint_out = 1
+send_interval_ms = 200
+poll_interval_ms = 1000
+stale_after_ms = 5000
+cpu_power_encoding = "legacy"
+# For multiple AK-03 units, set exactly one stable selector:
+# serial_number = "device serial"
+# location_path = "/sys/devices/.../usb1/1-2"
+
+[telemetry]
+# Mirror selected GPU metrics into the CPU display group.
+cpu_to_display = false
+# Required when multiple NVIDIA GPUs are present.
+# gpu_uuid = "GPU-00000000-0000-0000-0000-000000000000"
+# CPU temperatures require exact hwmon name and sensor label; use `probe`.
+# hwmon_cpu_name = "coretemp"
+# hwmon_cpu_label = "Package id 0"
+# CPU power is optional; configure the exact hwmon power sensor identified by probe.
+# hwmon_cpu_power_name = "some_driver"
+# hwmon_cpu_power_label = "CPU"
+
+# Optional overrides. Each list is the eight consecutive bytes for that
+# display group; "none" emits zero. Derived sources include power_low,
+# power_remainder, power_fraction, power_high, power_hundreds,
+# clock_hundreds, and clock_remainder.
+# [mapping]
+# cpu = ["cpu.temp_c", "none", "none", "cpu.util_pct", "cpu.power_low", "cpu.power_fraction", "cpu.clock_hundreds", "cpu.clock_remainder"]
+# gpu = ["gpu.temp_c", "none", "none", "gpu.util_pct", "gpu.power_remainder", "none", "gpu.clock_hundreds", "gpu.clock_remainder"]
+# cpu_power_high = "cpu.power_high"
+# gpu_power_high = "gpu.power_hundreds"

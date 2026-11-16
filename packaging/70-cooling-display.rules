@@ -1,0 +1,1 @@
+SUBSYSTEM=="usb", ATTR{idVendor}=="5131", ATTR{idProduct}=="200b", MODE="0660", GROUP="cooling-display"

@@ -1,0 +1,20 @@
+[Unit]
+Description=Lovingcool AK-03 telemetry display
+
+[Service]
+Type=simple
+User=cooling-display
+Group=cooling-display
+ExecStart=/usr/bin/cooling-display --config /etc/cooling-display.toml run
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/sys /proc
+RuntimeDirectory=cooling-display
+RuntimeDirectoryMode=0700
+Environment=COOLING_DISPLAY_LOCK_DIR=/run/cooling-display
+
+[Install]
+WantedBy=multi-user.target
